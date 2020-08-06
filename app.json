@@ -1,0 +1,12 @@
+{
+  "name": "NativeAPI",
+  "displayName": "NativeAPI",
+  "expo": {
+    "name": "NativeAPI",
+    "slug": "NativeAPI",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
