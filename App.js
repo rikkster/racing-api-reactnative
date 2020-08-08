@@ -4,6 +4,8 @@ import { Button, View, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { DriverRow } from './components/row.driver';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -57,13 +59,23 @@ const DetailsScreen = ({ navigation }) => {
 
     <View style={{ flex: 1 }}>
 
-      <Row text="ОХ У ЕЛИ" />
-      <Row text="ОХ У ЕЛКИ" />
-      <Row text="ОХ У ЕЛИ" />
-      <Row text="ЗЛЫЕ ВОЛКИ" />
-      <Row text="РЕАКТ" />
-      <Row text="РАЗВОРАЧИВАЛИ" />
-      <Row text="ВЕСЬ ВЕЧЕР" />
+      <DriverRow
+        driverId={``}
+        givenName={`Bob`}
+        familyName={`Black`}
+        nationality={`afroblack`}
+        dateOfBirth={`03.02.1990`}
+        urlWiki={``}
+      />
+
+      <DriverRow
+        driverId={``}
+        givenName={`John`}
+        familyName={`Dude`}
+        nationality={`dude`}
+        dateOfBirth={`06.01.1920`}
+        urlWiki={``}
+      />
       
       <Button
         title="Go to Home"
@@ -74,14 +86,6 @@ const DetailsScreen = ({ navigation }) => {
   );
 
 }
-
-const Row = (props) => (
-
-  <Text style={styles.row}>
-    {props.text}
-  </Text> 
-
-)
 
 const Stack = createStackNavigator();
 
