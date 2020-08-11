@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 9632,
-  "expoServerNgrokUrl": "https://e2-s74.anonymous.racing-api-reactnative.exp.direct",
-  "packagerNgrokUrl": "https://packager.e2-s74.anonymous.racing-api-reactnative.exp.direct",
-  "ngrokPid": 11728,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }
