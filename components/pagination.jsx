@@ -75,7 +75,7 @@ export const Pagination = (props) => {
                 <TouchableOpacity key={index} onPress={() => props.change(n)}>
                 <View>
 
-                    <Text style={[ pagination.btn, pagination.btn_num, n === props.current && pagination.btn_current ]}>
+                    <Text style={[ pagination.btn, pagination.btn_num, n === props.current && [ pagination.btn_current, styles.shadow ] ]}>
                         {n}
                     </Text>
 
