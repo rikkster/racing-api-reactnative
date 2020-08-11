@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { SafeAreaView, View, ScrollView, Text } from 'react-native';
 import { DriverRow } from '../components/row.driver';
 import { Pagination } from '../components/pagination';
+import { Loader } from '../components/loader';
 
-import { styles, drivers, buttons } from '../styles/global';
+import { drivers } from '../styles/global';
 
 export const DriversScreen = ({ navigation }) => {
 
@@ -14,7 +15,7 @@ export const DriversScreen = ({ navigation }) => {
 
     
     
-    async function getData(page = 1) {
+    async function getData(page = 1) { //TODO move to redux actions
 
         const offset = page - 1 * 10; 
         
@@ -25,14 +26,22 @@ export const DriversScreen = ({ navigation }) => {
 
     }
 
+    async function showRacingsPage(driver) { //TODO move to redux actions
+        
+        //TODO redux set store.selectedDriverId = driver
+        navigation.navigate('Racings');
+
+    }
+
     useEffect(() => { getData(currentPage) }, []);
     
     return (
   
-      <View style={{ flex: 1, flexDirection: 'column'}}>
+      <SafeAreaView style={{ flex: 1, flexDirection: 'column'}}>
 
             <DriversList
                 data={table}
+                goRacings={showRacingsPage}
             />
 
             <Pagination
@@ -41,7 +50,7 @@ export const DriversScreen = ({ navigation }) => {
                 change={getData}
             />
 
-      </View>
+      </SafeAreaView>
   
     );
   
@@ -53,7 +62,7 @@ const DriversList = (props) => (
   
     { props.data === "loading"
 
-        ? <Text style={{ fontSize: 25 }}>Loading...</Text>        
+        ? <Loader />        
         : props.data.length < 1
 
             ? <Text style={{ fontSize: 25 }}>EMPTY</Text>
@@ -67,6 +76,7 @@ const DriversList = (props) => (
                     nationality={ val['nationality'] }
                     dateOfBirth={ val['dateOfBirth'] }
                     urlWiki={ val['url'] }
+                    showRaces={ props.goRacings }
                 />
   
             )) 
