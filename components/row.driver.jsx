@@ -1,58 +1,50 @@
 import React, { useState } from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const rowStyles = StyleSheet.create({
-    
-    row: {
-        flex: 1,
-        height: 55,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        borderBottomColor: "gray",
-        borderBottomWidth: 2
-    },
-
-    text: {
-        fontSize: 18,
-        padding: 10,
-        backgroundColor: 'lightgray'
-    },
-
-    name: {
-    }
-
-});
+import { styles, driverRow } from '../styles/global';
 
 export const DriverRow = (props) => {
 
-    //driverId
-    //urlWiki
     const [showDetails, setShowDetails] = useState(false);
 
     return (
 
-        <View style={rowStyles.row}>
+        <View style={[driverRow.rowContainer, styles.shadow]}>
 
-            <TouchableOpacity style={{ flex: 1, height: 55, flexDirection: 'row' }} onPress={() => setShowDetails( showDetails ? false : true )}>
+            <TouchableOpacity onPress={() => setShowDetails( showDetails ? false : true )}>
+            <View style={[driverRow.rowChildren, { paddingLeft: 20 }]}>
 
-                <Text style={[rowStyles.text, rowStyles.name]}>
-                    {props.givenName}
+                <Text 
+                    style={{ 
+                        fontSize: 30, 
+                        transform: [{ 
+                            rotate: showDetails 
+                                        ? "-90deg" 
+                                        : "90deg" 
+                        }]
+                    }}
+                >›</Text>
+
+                <Text style={[driverRow.text, driverRow.name]}>                    
+                    {`${props.givenName}  ${props.familyName}`}
                 </Text>
 
-                <Text style={[rowStyles.text, rowStyles.name]}>
-                    {props.familyName}
-                </Text> 
-
+            </View>
             </TouchableOpacity>
 
             { showDetails 
-                &&  <View style={rowStyles.row}>
+                &&  <View style={[ driverRow.rowChildren, { paddingLeft: 10, alignItems: 'flex-start' } ]}>
 
-                        <Text style={rowStyles.text}>
-                            {props.dateOfBirth}
+                        <Text style={[driverRow.more, {fontWeight: 'bold'}]}>
+                            DOB:
+                        </Text>
+                        <Text style={[driverRow.more, { marginRight: 15 }]}>
+                             {props.dateOfBirth}
                         </Text> 
-
-                        <Text style={rowStyles.text}>
+                        <Text style={[driverRow.more, {fontWeight: 'bold'}]}>
+                            Country:
+                        </Text>
+                        <Text style={driverRow.more}>
                             {props.nationality}
                         </Text> 
 
