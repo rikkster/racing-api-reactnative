@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-
+import { View, Text, Linking, TouchableOpacity } from 'react-native';
+import { Button_more } from '../components/buttons';
+import { RowDetailed } from '../components/row.detailed';
 import { styles, driverRow } from '../styles/global';
 
 export const DriverRow = (props) => {
@@ -33,20 +34,39 @@ export const DriverRow = (props) => {
             </TouchableOpacity>
 
             { showDetails 
-                &&  <View style={[ driverRow.rowChildren, { paddingLeft: 10, alignItems: 'flex-start' } ]}>
 
-                        <Text style={[driverRow.more, {fontWeight: 'bold'}]}>
-                            DOB:
-                        </Text>
-                        <Text style={[driverRow.more, { marginRight: 15 }]}>
-                             {props.dateOfBirth}
-                        </Text> 
-                        <Text style={[driverRow.more, {fontWeight: 'bold'}]}>
-                            Country:
-                        </Text>
-                        <Text style={driverRow.more}>
-                            {props.nationality}
-                        </Text> 
+                &&  <View style={[ driverRow.rowContainer, { alignItems: 'flex-start' } ]}>
+
+                        <View style={styles.row}>
+
+                            <RowDetailed
+                                name="DOB"
+                                value={props.dateOfBirth}
+                            />
+
+                            <RowDetailed
+                                name="Country"
+                                value={props.nationality}
+                            />
+
+                        </View>
+
+                        <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start', alignSelf: 'stretch' }}>
+                            
+
+                            <Button_more 
+                                title="Wiki"
+                                onPress={ () => { Linking.openURL(props.urlWiki) } }
+                            />
+
+                            <Button_more 
+                                title="Races" 
+                                color="blue"
+                                onPress={() => props.showRaces(props.driverId)}
+                            />   
+
+
+                        </View>
 
                     </View> }
 
