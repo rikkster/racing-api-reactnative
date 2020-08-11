@@ -4,7 +4,7 @@ import { SafeAreaView, View, Text } from 'react-native';
 
 import { Circle_button } from '../components/buttons';
 
-import { styles, home } from '../styles/global';
+import { styles, home, txtcolor } from '../styles/global';
 
 export const HomeScreen = ({ navigation }) => (
   
@@ -12,8 +12,8 @@ export const HomeScreen = ({ navigation }) => (
         
         <View style={[styles.column, styles.center]}>
 
-            <Text style={styles.h1}>Ergast</Text>
-            <Text style={styles.h2}>Developer API</Text>
+            <Text style={[styles.h1, txtcolor.black]}>Ergast</Text>
+            <Text style={[styles.h2, txtcolor.gray]}>Developer API</Text>
             
         </View>
 
