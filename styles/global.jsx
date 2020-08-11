@@ -3,14 +3,23 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
 
   shadow: {
-    shadowColor: "#FE3458",
+    shadowColor: "rgba(0,0,0,0.1)",
     shadowOffset:{
-      width: 2,
-      height: 6,
+      width: 0,
+      height: 0,
     },
-    shadowOpacity: 0.9,
-    shadowRadius: 8.30,
-    elevation: 5,
+    shadowOpacity: 0.3,
+    shadowRadius: 1.30,
+    elevation: 3.5,
+  },
+
+  textShadow: {
+    textShadowColor: 'rgba(0,0,0,0.3)',
+    textShadowOffset: {
+      width: 2,
+      height: 1
+    },
+    textShadowRadius: 8,
   },
 
   container: {
@@ -21,13 +30,104 @@ const styles = StyleSheet.create({
 
   },
 
+  row: {
+    flex: 1, 
+    alignSelf: 'stretch', 
+    flexDirection: 'row'
+  },
+
+  column: {
+    flex: 1, 
+    alignSelf: 'stretch', 
+    flexDirection: 'column'
+  },
+
   h1: {
-    fontSize: 30,
+    fontSize: 45,
+    fontWeight:'bold'
+  },
+
+  h2: {
+    fontSize: 25,
     fontWeight:'bold'
   },
 
   bold: {
     fontWeight: 'bold'
+  },
+
+  center: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  loader: {
+    paddingVertical: 250,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "center",
+    alignItems: "center",
+    fontSize: 39,
+    fontWeight:'bold',
+    color: 'lightgray',
+    letterSpacing: 9
+  }
+
+})
+
+
+const bgcolor = StyleSheet.create({
+
+  orange: { backgroundColor: 'orange' },
+  green: { backgroundColor: 'lightgreen' },
+  blue: { backgroundColor: 'blue' },
+  black: { backgroundColor: '#4E4E4E' },
+  gray: { backgroundColor: '#7E7E7E' },
+
+})
+
+const txtcolor = StyleSheet.create({
+
+  orange: { color: 'orange' },
+  green: { color: 'lightgreen' },
+  blue: { color: 'blue' },
+  black: { color: '#4E4E4E' },
+  gray: { color: '#7E7E7E' },
+
+})
+
+const buttons = StyleSheet.create({
+
+  btn_more: {
+    flex: 2,
+    fontSize: 16,
+    fontWeight: '500',    
+    textAlign: 'center',
+    alignSelf: 'flex-end',
+    marginLeft: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 6,
+    color: "#fff",
+    borderRadius: 6,
+    backgroundColor: 'orange'
+  },
+
+  btn_circle: {
+    width: 200,
+    height: 200,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
+    backgroundColor: 'orange'
+  },
+
+  btn_circle_text: {
+    margin: 10,
+    fontSize: 18,
+    fontWeight: '600',
+    color: "#fff",
+    textAlign: 'center',
   }
 
 })
@@ -39,7 +139,8 @@ const home = StyleSheet.create({
     flex: 1, 
     fontSize: 25, 
     alignItems: 'stretch', 
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    paddingBottom: 100
 
   },
 
@@ -93,7 +194,7 @@ const driverRow = StyleSheet.create({
 
   name: {
     paddingLeft: 20
-  }
+  },
 
 });
 
@@ -127,9 +228,8 @@ const pagination = StyleSheet.create({
 
   btn_current: {
 
-    borderWidth: 2.5,
-    borderColor: 'lightgreen',
-    backgroundColor: "lightgreen",
+    fontWeight: 'bold',
+    backgroundColor: "#fff",
     transform: [{ scale: 1.18 }]
 
   },
@@ -144,4 +244,4 @@ const pagination = StyleSheet.create({
 
 });
 
-export { styles, home, drivers, driverRow, pagination }
+export { styles, bgcolor, txtcolor, buttons, home, drivers, driverRow, pagination }
