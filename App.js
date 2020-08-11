@@ -1,31 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import * as React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { HomeScreen } from './containers/home';
 import { DriversScreen } from './containers/drivers';
-
-import { home } from './styles/global';
-
-const HomeScreen = ({ navigation }) => {
-
-  return (
-
-    <View style={home.container}>
-   
-
-      <Button        
-        title="Открыть список гонщиков"
-        onPress={() => navigation.navigate('Drivers')} />
-
-      <StatusBar style="auto" />
-
-    </View>
-
-  );
-
-}
+import { RacingsScreen } from './containers/racings';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +19,7 @@ function App() {
 
         <Stack.Screen name="Home"     options={{ title: 'Тестовое задание React Native'}} component={HomeScreen} />
         <Stack.Screen name="Drivers"  options={{ title: 'Список гонщиков'}} component={DriversScreen} />
+        <Stack.Screen name="Racings"  options={{ title: 'Список заездов %DriverName%'}} component={RacingsScreen} />
 
       </Stack.Navigator>
 
